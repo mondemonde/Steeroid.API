@@ -8,6 +8,7 @@ using System.Diagnostics;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using WebApplicationTest._Repo;
 
 namespace DevNoteHub.Azure
 {
@@ -36,6 +37,9 @@ namespace DevNoteHub.Azure
             var result = JsonConvert.DeserializeObject<ResultMessage>(jsonMessage);
 
             Debug.WriteLine("-------------RESULT: " + result.OuputResponse);
+
+            var msg = string.Format("(ID#{0}) REF#{1}: {2}",result.MessageId, result.ReferenceId, result.OuputResponse);
+            MyDb.Results.Add(msg);
 
             await client.CompleteAsync(message.SystemProperties.LockToken);
         }

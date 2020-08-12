@@ -322,6 +322,7 @@
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
     <Compile Include="_AZURE\DevNoteServiceBusHandler.cs" />
+    <Compile Include="_Repo\MyDb.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

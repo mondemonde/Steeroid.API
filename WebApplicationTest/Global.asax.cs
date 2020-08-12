@@ -11,6 +11,8 @@ using System.Web.Http;
 using Microsoft.Azure.ServiceBus;
 using System.Threading.Tasks;
 using DevNoteHub.Azure;
+using WebApplicationTest._Repo;
+using System.Configuration;
 
 namespace WebApplicationTest
 {
@@ -32,8 +34,8 @@ namespace WebApplicationTest
             #region AZURE BUS---------------------------------
 
 
-            var connectionString = @"Endpoint=sb://devnote.servicebus.windows.net/;SharedAccessKeyName=SteerAccess;SharedAccessKey=UsPOVthgtxQuHN0yN4RRsabW9LGzDaQdUWx2sbY8qOs=";
-            var subscriptionName = "appsteerqueue";
+            var connectionString = ConfigurationManager.AppSettings["connectionStringBus"] ?? ""; 
+            var subscriptionName = ConfigurationManager.AppSettings["subscriptionName"] ?? "";  
 
            
 
@@ -63,7 +65,9 @@ namespace WebApplicationTest
 
             #endregion -----------------------------------
 
+            //in-memory repo
 
+            MyDb.Results = new List<string>();
         }
     }
 }

@@ -2,6 +2,15 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageProjectUrl>https://github.com/mondemonde/Steeroid.API</PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Authors>rgalvez@blastasia.com</Authors>
+    <Company>BlastAsia Inc.</Company>
+    <Description>Base classes for Steeroid messaging</Description>
+    <PackageTags>Steeroid,BlastAsia,Steer,QuickReach</PackageTags>
+    <RepositoryUrl>https://github.com/mondemonde/Steeroid.API</RepositoryUrl>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageIcon>steering-wheel-icon.png</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -12,6 +21,13 @@
     <Reference Include="System.ComponentModel.DataAnnotations">
       <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.ComponentModel.DataAnnotations.dll</HintPath>
     </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="F:\Docs\MyVideo\Steer_2_Installation\steering-wheel-icon.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
