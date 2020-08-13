@@ -26,21 +26,20 @@ namespace WebApplicationTest
             // Code that runs on application startup
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
+
+
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
 
+           
 
             #region AZURE BUS---------------------------------
-
 
             var connectionString = ConfigurationManager.AppSettings["connectionStringBus"] ?? ""; 
             var subscriptionName = ConfigurationManager.AppSettings["subscriptionName"] ?? "";  
 
-           
-
             MyAzure = new QueueClient(connectionString,subscriptionName);
-
 
             var options = new MessageHandlerOptions((args) =>
             {
@@ -53,20 +52,15 @@ namespace WebApplicationTest
 
                 return Task.CompletedTask;
             });
-
             options.MaxConcurrentCalls = 10;
             options.AutoComplete = false;
-
 
             // STEP_.RECIEVER AZURE REcieve EVENT DevNoteServiceBusMessageHandler DevNoteServiceBusMessageHandler
             var serviceBusHandler = new DevNoteServiceBusMessageHandler(MyAzure);
             MyAzure.RegisterMessageHandler(serviceBusHandler.MessageReceivedHandler, options);
-
-
             #endregion -----------------------------------
 
             //in-memory repo
-
             MyDb.Results = new List<string>();
         }
     }

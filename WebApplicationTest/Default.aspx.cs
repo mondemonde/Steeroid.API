@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Flurl;
+using Flurl.Http;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -24,5 +26,7 @@ namespace WebApplicationTest
         {
             GridView1.DataBind();
         }
+
+       
     }
 }
